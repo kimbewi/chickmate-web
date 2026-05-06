@@ -24,18 +24,19 @@
     </div>
 
     <div class="env-section">
-      <div class="wireframe-box">Env 1</div>
-      <div class="wireframe-box">Env 2</div>
-      <div class="wireframe-box">Env 3</div>
-      <div class="wireframe-box">Env 4</div>
+      <StatusCard title="Ammonia Level" :data="ammoniaLevel" unit="ppm" iconColor="#4CAF50" :selectedWeek="selectedWeek" />
+      <StatusCard title="Temperature" :data="temperature" unit="°C" iconColor="#F44336" :selectedWeek="selectedWeek" />
+      <StatusCard title="Humidity" :data="humidity" unit="%" iconColor="#2196F3" :selectedWeek="selectedWeek" />
+      <StatusCard title="Light Level" :data="lightLevel" unit="lux" iconColor="#FFEB3B" :selectedWeek="selectedWeek" />
     </div>
   </section>
 </template>
 
 <script setup>
 import { ref, computed, onMounted } from 'vue';
-import FlockStatusCard from './FlockStatusCard.vue';
 import { getDatabase, ref as firebaseRef, onValue } from "firebase/database";
+import FlockStatusCard from './FlockStatusCard.vue';
+import StatusCard from './StatusCard.vue';
 
 const rawBehaviorState = ref('LOADING'); 
 const rawSoundState = ref('LOADING');
@@ -68,7 +69,7 @@ onMounted(() => {
   onValue(aiResultRef, (snapshot) => {
     if (snapshot.exists()) {
       const data = snapshot.val();
-      
+
       rawBehaviorState.value = data.cv ? data.cv.toString().toUpperCase() : '--';
       rawSoundState.value = data.bioacoustic ? data.bioacoustic.toString().toUpperCase() : '--';
       
@@ -76,6 +77,39 @@ onMounted(() => {
     } else {
       rawBehaviorState.value = '--';
       rawSoundState.value = '--';
+    }
+  });
+});
+
+// ENVIRONMENTAL STATUS LOGIC
+const ammoniaLevel = ref('--');
+const temperature = ref('--');
+const humidity = ref('--');
+const lightLevel = ref('--');
+const selectedWeek = ref(1); // Default week
+
+onMounted(() => {
+  const db = getDatabase();
+  const aiResultRef = firebaseRef(db, 'aiResult'); 
+  // ... existing aiResult listener ...
+
+  // SENSOR DATA LISTENER
+  const sensorRef = firebaseRef(db, 'sensorData');
+  onValue(sensorRef, (snapshot) => {
+    if (snapshot.exists()) {
+      const data = snapshot.val();
+      ammoniaLevel.value = data.ammonia !== undefined ? Number(data.ammonia).toFixed(3) : '--';
+      lightLevel.value = data.lightLevel !== undefined ? Number(data.lightLevel).toFixed(3) : '--';
+      temperature.value = data.temperature !== undefined ? data.temperature.toString() : '--';
+      humidity.value = data.humidity !== undefined ? data.humidity.toString() : '--';
+    }
+  });
+
+  // CHICK INFO LISTENER 
+  const chickRef = firebaseRef(db, 'chickInfo');
+  onValue(chickRef, (snapshot) => {
+    if (snapshot.exists() && snapshot.val().ageWeeks) {
+      selectedWeek.value = snapshot.val().ageWeeks;
     }
   });
 });
