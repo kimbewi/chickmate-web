@@ -1,15 +1,14 @@
 import { initializeApp } from "firebase/app";
 import { getDatabase } from "firebase/database";
-import 'dotenv/config';
 
 const firebaseConfig = {
-  apiKey: process.env.API_KEY,
-  authDomain: "chickmate-ef0a0.firebaseapp.com",
-  databaseURL: "https://chickmate-ef0a0-default-rtdb.asia-southeast1.firebasedatabase.app",
-  projectId: "chickmate-ef0a0",
-  storageBucket: "chickmate-ef0a0.firebasestorage.app",
-  messagingSenderId: "625455130422",
-  appId: "1:625455130422:web:5c5ca912a717c553b4f597"
+  apiKey: import.meta.env.VITE_FIREBASE_API_KEY,
+  authDomain: import.meta.env.VITE_FIREBASE_AUTH_DOMAIN,
+  projectId: import.meta.env.VITE_FIREBASE_PROJECT_ID,
+  storageBucket: import.meta.env.VITE_FIREBASE_STORAGE_BUCKET,
+  messagingSenderId: import.meta.env.VITE_FIREBASE_MESSAGING_SENDER_ID,
+  appId: import.meta.env.VITE_FIREBASE_APP_ID,
+  databaseURL: import.meta.env.VITE_FIREBASE_DATABASE_URL
 };
 
 // Initialize Firebase
