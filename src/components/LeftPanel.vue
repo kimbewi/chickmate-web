@@ -1,21 +1,22 @@
 <!-- src/components/LeftPanel.vue -->
 <template>
   <section class="left-panel">
+    
     <div class="video-section">
       <!-- Your VideoFeed component will go here! -->
       <VideoFeed />
     </div>
     
-    <div class="controls-section">
-      <div class="wireframe-box">Control 1</div>
-      <div class="wireframe-box">Control 2</div>
-      <div class="wireframe-box">Control 3</div>
+    <div style="margin-top: 8px;">
+      <ActuatorControls />
     </div>
+
   </section>
 </template>
 
 <script setup>
 import VideoFeed from './VideoFeed.vue';
+import ActuatorControls from './ActuatorControls.vue';
 </script>
 
 <style scoped>
@@ -26,7 +27,7 @@ import VideoFeed from './VideoFeed.vue';
 }
 
 .video-section {
-  background-color: #333333;
+  background-color: #000000;
   border-radius: 16px;
   min-height: 450px;
   display: flex;
@@ -34,20 +35,6 @@ import VideoFeed from './VideoFeed.vue';
   justify-content: center;
   color: white;
   font-weight: bold;
-}
-
-.controls-section {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 16px;
-}
-
-.wireframe-box {
-  background-color: #FFFFFF;
-  border: 1px dashed #CCCCCC;
-  border-radius: 12px;
-  padding: 24px;
-  text-align: center;
-  color: #888888;
+  overflow: hidden;
 }
 </style>
