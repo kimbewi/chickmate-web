@@ -95,14 +95,24 @@ const sensorConfig = computed(() => {
     case 'Temperature':
       highLabel = 'TOO HOT'; lowLabel = 'TOO COLD';
       highRec = 'Turn ON the fans and OFF the heater.'; lowRec = 'Turn ON the heater and OFF the fans.';
-      targetMin = 32.0 - (2 * (props.selectedWeek - 1));
-      targetMax = 34.0 - (2 * (props.selectedWeek - 1));
+      
+      const weeklyTemps = [
+        { min: 32.0, max: 35.0 }, // Week 1
+        { min: 30.0, max: 32.0 }, // Week 2
+        { min: 28.0, max: 30.0 }, // Week 3
+      ];
+      
+      const weekIndex = Math.min(props.selectedWeek - 1, weeklyTemps.length - 1);
+      
+      targetMin = weeklyTemps[weekIndex].min;
+      targetMax = weeklyTemps[weekIndex].max;
+      
       subtitle = `Target for Week ${props.selectedWeek}: ${targetMin}-${targetMax}${props.unit}`;
       break;
       
     case 'Ammonia Level':
       highLabel = 'TOO HIGH'; highRec = 'Turn ON the fans immediately.';
-      targetMin = 0.0; targetMax = 6.0;
+      targetMin = 0.0; targetMax = 6.99;
       subtitle = `Safe Threshold: 0-${targetMax} ${props.unit}`;
       break;
 
