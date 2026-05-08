@@ -65,104 +65,44 @@ defineEmits(['update:isManual', 'update:selectedWeek']);
 <style scoped>
 .system-controls {
   display: flex;
-  gap: 64px; /* Space between the two control groups */
-  padding: 16px 32px;
+  align-items: center; 
+  gap: 48px; 
+  padding: 8px 24px; 
   background-color: #F8F9FA;
+  border-bottom: 1px solid #EAEAEA;
 }
 
 .control-group {
   display: flex;
-  flex-direction: column;
-  gap: 8px;
+  flex-direction: row; 
+  align-items: center;
+  gap: 12px; 
+  
 }
 
 .control-label {
-  font-size: 14px;
+  font-size: 13px;
   font-weight: 800;
   color: #1e1e1e;
+  margin: 0;
+  white-space: nowrap; 
 }
+.toggle-wrapper { display: flex; background-color: #EFEFEF; border-radius: 8px; padding: 4px; width: 220px; }
 
-/* --- TOGGLE BUTTON STYLES --- */
-.toggle-wrapper {
-  display: flex;
-  background-color: #EFEFEF;
-  border-radius: 8px;
-  padding: 4px;
-  width: 260px;
-}
+.toggle-btn { flex: 1; display: flex; align-items: center; justify-content: center; gap: 6px; padding: 6px 12px; border: none; border-radius: 6px; background-color: transparent; color: #555555; font-size: 12px; font-weight: 600; cursor: pointer; transition: all 0.2s ease; }
 
-.toggle-btn {
-  flex: 1;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-  padding: 8px 16px;
-  border: none;
-  border-radius: 6px;
-  background-color: transparent;
-  color: #555555;
-  font-size: 13px;
-  font-weight: 500;
-  font-family: inherit;
-  cursor: pointer;
-  transition: all 0.2s ease;
-}
+.toggle-btn.active { background-color: #4A85F6; color: #FFFFFF; box-shadow: 0 1px 3px rgba(0,0,0,0.1); }
 
-.toggle-btn.active {
-  background-color: #4A85F6; /* The specific blue from your Flutter app */
-  color: #FFFFFF;
-  font-weight: 600;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-}
-
-.btn-icon {
-  width: 16px;
-  height: 16px;
-}
+.btn-icon { width: 14px; height: 14px; }
 
 /* --- DROPDOWN STYLES --- */
-.dropdown-wrapper {
-  position: relative;
-  display: flex;
-  align-items: center;
-  width: 200px;
-}
+.dropdown-wrapper { position: relative; display: flex; align-items: center; width: 180px; }
 
-.calendar-icon {
-  position: absolute;
-  left: 12px;
-  width: 16px;
-  height: 16px;
-  color: #555555;
-  pointer-events: none; /* Allows clicking "through" the icon onto the select menu */
-}
+.calendar-icon { position: absolute; left: 10px; width: 14px; height: 14px; color: #555555; pointer-events: none; }
 
-.chevron-icon {
-  position: absolute;
-  right: 12px;
-  width: 16px;
-  height: 16px;
-  color: #555555;
-  pointer-events: none;
-}
+.chevron-icon { position: absolute; right: 10px; width: 14px; height: 14px; color: #555555; pointer-events: none; }
 
-.week-select {
-  width: 100%;
-  appearance: none; 
-  background-color: #FFFFFF;
-  border: 1px solid #EAEAEA;
-  border-radius: 8px;
-  padding: 10px 12px 10px 36px; 
-  font-size: 13px;
-  font-weight: 500;
-  font-family: inherit;
-  color: #1e1e1e;
-  cursor: pointer;
-  outline: none;
-}
+.week-select { width: 100%; appearance: none; background-color: #FFFFFF; border: 1px solid #CCCCCC; border-radius: 8px; padding: 6px 12px 6px 32px; font-size: 12px; font-weight: 600; color: #1e1e1e; cursor: pointer; outline: none; }
 
-.week-select:focus {
-  border-color: #4A85F6;
-}
+.week-select:focus { border-color: #4A85F6; }
 </style>

@@ -23,13 +23,16 @@ import ActuatorControls from './ActuatorControls.vue';
 .left-panel {
   display: flex;
   flex-direction: column;
-  gap: 24px;
+  gap: 16px;
+  height: 100%; 
+  min-height: 0; 
 }
 
 .video-section {
   background-color: #000000;
   border-radius: 16px;
-  min-height: 450px;
+  flex: 1; 
+  min-height: 250px; 
   display: flex;
   align-items: center;
   justify-content: center;

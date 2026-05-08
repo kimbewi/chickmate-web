@@ -27,76 +27,69 @@ defineProps({
 </script>
 
 <style scoped>
+
 .flock-card {
-  display: flex;
-  align-items: center;
-  background-color: #FFFFFF;
+  display: flex; 
+  align-items: center; 
+  background-color: #FFFFFF; 
   border-radius: 8px;
-  padding: 12px;
-  gap: 16px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06); /* Very soft shadow */
-  margin-bottom: 12px;
+  padding: 12px; 
+  gap: 12px; 
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05); 
+  margin: 0;
+  height: 100%; 
+  box-sizing: border-box;
+  min-width: 0; 
 }
 
 /* --- Cream Icon Box --- */
-.image-box {
-  width: 72px;
-  height: 72px;
+.image-box { 
+  width: 40px; 
+  height: 40px; 
   background-color: #FCF6E8; 
-  border-radius: 8px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-shrink: 0;
-  padding: 8px;
+  border-radius: 6px; 
+  padding: 6px; 
+  flex-shrink: 0; 
 }
 
-.image-box img {
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
+.image-box img { 
+  width: 100%; 
+  height: 100%; 
+  object-fit: contain; 
 }
 
-.fallback-icon {
-  font-size: 32px;
+.fallback-icon { 
+  font-size: 20px; 
 }
 
 /* --- Typography --- */
-.text-content {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  overflow: hidden; /* Keeps long descriptions from breaking the card */
-  flex-grow: 1;
+.text-content { 
+  display: flex; 
+  flex-direction: column; 
+  justify-content: center; 
+  gap: 2px;
+  min-width: 0; 
+  flex-grow: 1; 
 }
 
-.card-title {
-  font-size: 13px;
-  color: #333333;
-  margin-bottom: 2px;
-  font-weight: 500;
-}
+.card-title { 
+  font-size: 12px;color: #333333; margin-bottom: 2px; font-weight: 600; }
 
-.card-status {
-  font-size: 24px;
-  font-weight: 900;
-  letter-spacing: 0.5px;
-  text-transform: uppercase;
-  line-height: 1.1;
-  margin-bottom: 2px;
-}
+.card-status { font-size: 15px; font-weight: 900; letter-spacing: 0.5px; line-height: 1.1;  }
 
-.card-description {
-  font-size: 12px;
-  color: #999999;
-  white-space: nowrap;
+.card-description { 
+  font-size: 10px; 
+  color: #999999; 
+  white-space: normal; 
+  line-height: 1.2;
+  display: -webkit-box;
+  -webkit-line-clamp: 2; 
+  -webkit-box-orient: vertical;
   overflow: hidden;
-  text-overflow: ellipsis; /* Adds '...' if the text is too long */
+  margin: 0;
 }
 
 /* --- Dynamic Status Colors --- */
-.text-blue { color: #2B82D9; }  
-.text-green { color: #20C955; } 
-.text-red { color: #F44336; }
-.text-gray { color: #AAAAAA; }
+.text-blue { color: #2B82D9; }  .text-green { color: #20C955; } .text-red { color: #F44336; } .text-gray { color: #AAAAAA; }
+
 </style>

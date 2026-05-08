@@ -68,11 +68,28 @@ const handleWeekChange = (newWeek) => {
 </template>
 
 <style scoped>
-/* App.vue now ONLY handles the master grid layout! */
+.dashboard-container {
+  display: flex;
+  flex-direction: column;
+  height: 100vh; 
+  overflow: hidden; 
+  background-color: #F9FAFB;
+}
+
 .dashboard-grid {
   display: grid;
-  grid-template-columns: 2fr 1fr; /* Left is twice as wide as Right */
-  gap: 24px;
-  padding: 24px 32px;
+  grid-template-columns: 1.4fr 1fr;
+  gap: 16px;
+  padding: 8px 24px 16px 24px; 
+  flex: 1; 
+  min-height: 0; 
+  box-sizing: border-box;
+}
+
+@media (max-width: 1024px) {
+  .dashboard-grid {
+    grid-template-columns: 1fr; 
+    overflow-y: auto; 
+  }
 }
 </style>

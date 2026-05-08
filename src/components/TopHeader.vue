@@ -70,14 +70,36 @@ onUnmounted(() => {
 
 <style scoped>
 .top-nav {
-  background-color: #FFFFFF; padding: 16px 32px; display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid #EAEAEA; width: 100%; box-sizing: border-box;
+  height: 50px; 
+  padding: 0 24px;
+  display: flex; 
+  justify-content: space-between; 
+  align-items: center; 
+  border-bottom: 1px solid #EAEAEA; 
+  background-color: #FFFFFF;
+  width: 100%; 
+  box-sizing: border-box;
 }
-.logo-area { display: flex; align-items: center; gap: 12px; }
-.logo-img { height: 44px; border-radius: 8px; }
-.brand-name { margin: 0; font-size: 28px; font-weight: 900; color: #202020; letter-spacing: -0.5px; }
-.header-icons { display: flex; align-items: center; gap: 24px; }
-.nav-icon { width: 26px; height: 26px; color: #333333; cursor: pointer; transition: color 0.2s; }
+
+.logo-area { display: flex; align-items: center; gap: 8px; }
+
+.logo-img { height: 28px; border-radius: 6px; }
+
+.brand-name { margin: 0; font-size: 20px; font-weight: 900; color: #202020; letter-spacing: -0.5px; }
+
+.header-icons { 
+  display: flex; 
+  flex-direction: row; 
+  align-items: center; 
+  gap: 16px; 
+}
+
+.nav-icon { width: 20px; height: 20px; color: #333333; cursor: pointer; }
+
 .nav-icon:hover { color: #000000; }
-.notification-wrapper { position: relative; display: flex; align-items: center; justify-content: center; cursor: pointer; }
-.notification-badge { position: absolute; top: -4px; right: -6px; background-color: #F44336; color: #FFFFFF; font-size: 10px; font-weight: 900; padding: 2px 5px; border-radius: 12px; min-width: 18px; text-align: center; border: 2px solid #FFFFFF; box-sizing: border-box; }
+
+.notification-wrapper { position: relative; display: flex; align-items: center; cursor: pointer; }
+
+.notification-badge { position: absolute; top: -6px; right: -8px; background-color: #F44336; color: #FFFFFF; font-size: 9px; font-weight: 900; padding: 2px 4px; border-radius: 10px; min-width: 14px; text-align: center; }
+
 </style>
