@@ -68,8 +68,11 @@ defineEmits(['update:isManual', 'update:selectedWeek']);
   align-items: center; 
   gap: 48px; 
   padding: 8px 24px; 
-  background-color: #F8F9FA;
-  border-bottom: 1px solid #EAEAEA;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.3) 0%, rgba(255, 255, 255, 0.05) 100%);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: none;
+  z-index: 9;
 }
 
 .control-group {
@@ -83,26 +86,50 @@ defineEmits(['update:isManual', 'update:selectedWeek']);
 .control-label {
   font-size: 13px;
   font-weight: 800;
-  color: #1e1e1e;
+  color: #86868B;
   margin: 0;
   white-space: nowrap; 
 }
-.toggle-wrapper { display: flex; background-color: #EFEFEF; border-radius: 8px; padding: 4px; width: 220px; }
 
-.toggle-btn { flex: 1; display: flex; align-items: center; justify-content: center; gap: 6px; padding: 6px 12px; border: none; border-radius: 6px; background-color: transparent; color: #555555; font-size: 12px; font-weight: 600; cursor: pointer; transition: all 0.2s ease; }
+.toggle-wrapper { 
+  display: flex; 
+  background: rgba(255, 255, 255, 0.4); 
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  border-radius: 8px; 
+  padding: 4px; 
+  width: 220px; 
+}
 
-.toggle-btn.active { background-color: #4A85F6; color: #FFFFFF; box-shadow: 0 1px 3px rgba(0,0,0,0.1); }
+.toggle-btn { flex: 1; display: flex; align-items: center; justify-content: center; gap: 6px; padding: 6px 12px; border: none; border-radius: 6px; background-color: transparent; color: #1C1C1E; font-size: 12px; font-weight: 600; cursor: pointer; transition: all 0.2s ease; }
+
+.toggle-btn.active { background: linear-gradient(135deg, #FF9500 0%, #FF8A00 100%);
+  color: #FFFFFF; 
+  box-shadow: 0 4px 12px rgba(255, 149, 0, 0.3); 
+  border-color: transparent; }
 
 .btn-icon { width: 14px; height: 14px; }
 
 /* --- DROPDOWN STYLES --- */
 .dropdown-wrapper { position: relative; display: flex; align-items: center; width: 180px; }
 
-.calendar-icon { position: absolute; left: 10px; width: 14px; height: 14px; color: #555555; pointer-events: none; }
+.calendar-icon { position: absolute; left: 10px; width: 14px; height: 14px; color: #555555; pointer-events: none; z-index: 2; }
 
-.chevron-icon { position: absolute; right: 10px; width: 14px; height: 14px; color: #555555; pointer-events: none; }
+.chevron-icon { position: absolute; right: 10px; width: 14px; height: 14px; color: #555555; pointer-events: none; z-index: 2; }
 
-.week-select { width: 100%; appearance: none; background-color: #FFFFFF; border: 1px solid #CCCCCC; border-radius: 8px; padding: 6px 12px 6px 32px; font-size: 12px; font-weight: 600; color: #1e1e1e; cursor: pointer; outline: none; }
+.week-select { 
+  width: 100%; 
+  appearance: none; 
+  background: rgba(255, 255, 255, 0.4);
+  border: 1px solid rgba(255, 255, 255, 0.5); 
+  border-radius: 8px; 
+  padding: 6px 12px 6px 32px; 
+  font-size: 13px; 
+  font-weight: 600; 
+  color: #1C1C1E; 
+  cursor: pointer; 
+  outline: none; 
+}
 
-.week-select:focus { border-color: #4A85F6; }
+.week-select:focus { border-color: #FF9500; 
+  background: rgba(255, 255, 255, 0.7); }
 </style>

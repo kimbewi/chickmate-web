@@ -75,17 +75,21 @@ onUnmounted(() => {
   display: flex; 
   justify-content: space-between; 
   align-items: center; 
-  border-bottom: 1px solid #EAEAEA; 
-  background-color: #FFFFFF;
   width: 100%; 
   box-sizing: border-box;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.4) 0%, rgba(255, 255, 255, 0.1) 100%);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+  box-shadow: 0 4px 30px 0 rgba(31, 38, 135, 0.05);
+  z-index: 10;
 }
 
 .logo-area { display: flex; align-items: center; gap: 8px; }
 
 .logo-img { height: 28px; border-radius: 6px; }
 
-.brand-name { margin: 0; font-size: 20px; font-weight: 900; color: #202020; letter-spacing: -0.5px; }
+.brand-name { margin: 0; font-size: 20px; font-weight: 900; color: #1C1C1E; letter-spacing: -0.5px; }
 
 .header-icons { 
   display: flex; 

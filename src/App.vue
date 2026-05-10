@@ -73,8 +73,7 @@ const handleWeekChange = (newWeek) => {
   flex-direction: column;
   height: 100vh; 
   overflow: hidden; 
-  background-color: #F9FAFB;
-}
+  background: linear-gradient(135deg, #d3e0ff 0%, #e1e8fa 50%, #c4d4f5 100%);}
 
 .dashboard-grid {
   display: grid;

@@ -1,13 +1,11 @@
-<!-- src/components/LeftPanel.vue -->
 <template>
   <section class="left-panel">
     
     <div class="video-section">
-      <!-- Your VideoFeed component will go here! -->
       <VideoFeed />
     </div>
     
-    <div style="margin-top: 8px;">
+    <div class="actuator-wrapper">
       <ActuatorControls />
     </div>
 
@@ -23,7 +21,7 @@ import ActuatorControls from './ActuatorControls.vue';
 .left-panel {
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 12px;
   height: 100%; 
   min-height: 0; 
 }
@@ -39,5 +37,11 @@ import ActuatorControls from './ActuatorControls.vue';
   color: white;
   font-weight: bold;
   overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+}
+
+.actuator-wrapper {
+  display: flex;
+  flex-direction: column;
 }
 </style>

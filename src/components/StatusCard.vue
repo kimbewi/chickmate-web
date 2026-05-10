@@ -34,9 +34,15 @@
 
       <!-- BOTTOM GROUP: AI Recommendation -->
       <div v-if="isNumeric" class="rec-box" :class="currentStatus.isWarning ? 'rec-warning' : 'rec-normal'">
-        <svg viewBox="0 0 24 24" width="18" height="18" stroke="currentColor" fill="none" stroke-width="2" class="rec-icon">
+        
+        <svg v-if="currentStatus.isWarning" viewBox="0 0 24 24" width="18" height="18" stroke="currentColor" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="rec-icon">
+          <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0zM12 9v4m0 4h.01"></path>
+        </svg>
+
+        <svg v-else viewBox="0 0 24 24" width="18" height="18" stroke="currentColor" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="rec-icon">
           <path d="M14 9V5a3 3 0 0 0-3-3l-4 9v11h11.28a2 2 0 0 0 2-1.7l1.38-9a2 2 0 0 0-2-2.3zM7 22H4a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2h3"></path>
         </svg>
+
         <div class="rec-text-group">
           <span class="rec-title">AI RECOMMENDED ACTION</span>
           <span class="rec-text">{{ currentStatus.recommendation }}</span>
@@ -161,12 +167,14 @@ const currentStatus = computed(() => {
 
 <style scoped>
 .status-card {
-  background-color: #FFFFFF; 
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.4) 0%, rgba(255, 255, 255, 0.1) 100%);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.07);
   border-radius: 8px; 
   position: relative; 
   overflow: hidden;
-  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05); 
-  display: flex; 
   flex-direction: column;
   height: 100%; 
   min-height: 0;
@@ -197,9 +205,12 @@ const currentStatus = computed(() => {
   display: flex; 
   align-items: center; 
   justify-content: center; 
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.7) 0%, rgba(255, 255, 255, 0.2) 100%);
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  box-shadow: 0 2px 6px rgba(0,0,0,0.04), inset 0 1px 2px rgba(255, 255, 255, 0.9);
 }
 
-.icon-box svg { width: 14px; height: 14px; }
+.icon-box svg { width: 16px; height: 16px; }
 
 .status-pill { 
   padding: 3px 8px; 
@@ -231,14 +242,14 @@ const currentStatus = computed(() => {
 
 .card-title { 
   font-size: 12px; 
-  font-weight: 700; 
-  color: #888888; 
-  margin: 0 0 2px 0; 
+  font-weight: 600; 
+  color: #86868B; 
+  margin: 0 0 4px 0; 
 }
 
-.data-value { font-size: 24px; font-weight: 900; color: #1e1e1e; line-height: 1; margin: 0 0 4px 0; }
+.data-value { font-size: 24px; font-weight: 900; color: #1C1C1E; line-height: 1; margin: 0 0 4px 0; }
 
-.target-subtitle { font-size: 9px; font-weight: 500; color: #888888; margin: 0; }
+.target-subtitle { font-size: 9px; font-weight: 500; color: #98989D; margin: 0; }
 
 .rec-box { margin-top: 8px; padding: 6px 8px; border-radius: 6px; border: 1px solid; display: flex; align-items: center; gap: 4px; }
 

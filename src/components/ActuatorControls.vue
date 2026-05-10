@@ -11,7 +11,12 @@
     <div class="control-cards" :class="{ 'locked-opacity': !isManualMode }" :style="{ pointerEvents: isManualMode ? 'auto' : 'none' }">
       
       <ToggleControlCard title="Fans" :isOn="isFansOn" @toggle="val => updateControl('fans', val)">
-        <template #icon><svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" fill="none" stroke-width="2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg></template>
+        <template #icon>
+          <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M10.827 16.379a6.082 6.082 0 0 1-8.618-7.002l5.412 1.45a6.082 6.082 0 0 1 7.002-8.618l-1.45 5.412a6.082 6.082 0 0 1 8.618 7.002l-5.412-1.45a6.082 6.082 0 0 1-7.002 8.618l1.45-5.412Z"></path>
+            <path d="M12 12v.01"></path>
+          </svg>
+        </template>
       </ToggleControlCard>
 
       <ToggleControlCard title="Heater" :isOn="isHeaterOn" @toggle="val => updateControl('heater', val)">
@@ -60,12 +65,12 @@ const updateControl = (key, value) => {
 .hardware-section { display: flex; flex-direction: column; width: 100%; }
 
 .section-header { 
-  font-size: 12px; 
-  font-weight: 700; 
-  color: #888888; 
+  font-size: 13px; 
+  font-weight: 600; 
+  color: #86868B; 
   text-transform: uppercase; 
-  letter-spacing: 0.5px; 
-  margin: 0 0 6px 0; 
+  letter-spacing: 0.8px; 
+  margin: 0 0 10px 0; 
 }
 
 .lock-banner { background-color: #E8F0FE; border: 1px solid #8AB4F8; color: #1967D2; border-radius: 8px; padding: 12px 16px; display: flex; align-items: flex-start; gap: 12px; margin-bottom: 8px; font-size: 13px; font-weight: 500; line-height: 1.4; }

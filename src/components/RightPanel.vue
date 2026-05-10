@@ -21,10 +21,10 @@
 
     <h2 class="section-header env-header">Environmental Status</h2>
     <div class="env-section">
-      <StatusCard title="Ammonia Level" :data="ammoniaLevel" unit="ppm" iconColor="#4CAF50" :selectedWeek="selectedWeek" />
-      <StatusCard title="Temperature" :data="temperature" unit="°C" iconColor="#F44336" :selectedWeek="selectedWeek" />
-      <StatusCard title="Humidity" :data="humidity" unit="%" iconColor="#2196F3" :selectedWeek="selectedWeek" />
-      <StatusCard title="Light Level" :data="lightLevel" unit="lux" iconColor="#FFEB3B" :selectedWeek="selectedWeek" />
+      <StatusCard title="Ammonia Level" :data="ammoniaLevel" unit="ppm" iconColor="#34C759" :selectedWeek="selectedWeek" />
+      <StatusCard title="Temperature" :data="temperature" unit="°C" iconColor="#FF3B30" :selectedWeek="selectedWeek" />
+      <StatusCard title="Humidity" :data="humidity" unit="%" iconColor="#007AFF" :selectedWeek="selectedWeek" />
+      <StatusCard title="Light Level" :data="lightLevel" unit="lux" iconColor="#FFCC00" :selectedWeek="selectedWeek" />
     </div>
     
   </section>
@@ -112,11 +112,11 @@ onMounted(() => {
 }
 
 .section-header {
-  font-size: 12px;
-  font-weight: 700;
-  color: #888888;
+  font-size: 13px;
+  font-weight: 600;
+  color: #86868B;
   text-transform: uppercase;
-  letter-spacing: 0.5px;
+  letter-spacing: 0.8px;
   margin: 0;
 }
 
